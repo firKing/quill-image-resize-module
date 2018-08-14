@@ -95,6 +95,7 @@ export class Resize extends BaseModule {
             // right-side resize handler; dragging right enlarges image
             this.img.width = Math.round(this.preDragWidth + deltaX);
         }
+        this.img.height = Math.round((this.img.width / this.img.naturalWidth) * this.img.naturalHeight);
         this.requestUpdate();
     };
 
