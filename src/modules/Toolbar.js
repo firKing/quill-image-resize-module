@@ -1,6 +1,7 @@
 import IconAlignLeft from 'quill/assets/icons/align-left.svg';
 import IconAlignCenter from 'quill/assets/icons/align-center.svg';
 import IconAlignRight from 'quill/assets/icons/align-right.svg';
+import IconClean from 'quill/assets/icons/clean.svg';
 import { BaseModule } from './BaseModule';
 
 const Parchment = window.Quill.imports.parchment;
@@ -54,6 +55,15 @@ export class Toolbar extends BaseModule {
                 },
                 isApplied: () => FloatStyle.value(this.img) == 'right',
             },
+            {
+                icon: IconClean,
+                apply: () => {
+                    DisplayStyle.add(this.img, 'inline');
+                    FloatStyle.add(this.img, 'none');
+                    MarginStyle.add(this.img, '0 0 0 0');
+                },
+                isApplied: () => FloatStyle.value(this.img) == 'none',
+            }
         ];
     };
 
